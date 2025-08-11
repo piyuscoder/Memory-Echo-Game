@@ -7,14 +7,13 @@ let h2 = document.querySelector("h2");
 
 function startgame() {
   if (!start) {
-    console.log("game start");
     start = true;
     levelUp();
   }
 }
-document.addEventListener("keydown", startgame);
+
+document.addEventListener("keypress", startgame);
 document.addEventListener("touchstart", startgame);
-document.addEventListener("click", startgame);
 
 function gameFlash(btn) {
   btn.classList.add("flash");
@@ -46,7 +45,7 @@ function checkAns(idx) {
       setTimeout(levelUp, 1000);
     }
   } else {
-    h2.innerHTML = `Game Over! Your score was <b> ${level}</b><br>Press any key to start`;
+    h2.innerHTML = `Game Over! Your score was <b> ${level}</b><br>Press any key/touch to start`;
     document.querySelector("body").style.backgroundColor = "red";
     setTimeout(() => {
       document.querySelector("body").style.backgroundColor = "white";
